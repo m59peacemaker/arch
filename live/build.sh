@@ -2,12 +2,12 @@
 
 set -e -u
 
-iso_name=archlinux
-iso_label="ARCH_$(date +%Y%m)"
+iso_name=arch-m59
+iso_label="ARCH_m59_$(date +%Y%m)"
 iso_version=$(date +%Y.%m.%d)
 install_dir=arch
 work_dir=work
-out_dir=out
+out_dir=../build
 gpg_key=
 
 arch=$(uname -m)
@@ -59,7 +59,7 @@ make_basefs() {
 
 # Additional packages (airootfs)
 make_packages() {
-    setarch ${arch} mkarchiso ${verbose} -w "${work_dir}/${arch}" -C "${work_dir}/pacman.conf" -D "${install_dir}" -p "$(grep -h -v ^# ${script_path}/packages.{both,${arch}})" install
+    setarch ${arch} mkarchiso ${verbose} -w "${work_dir}/${arch}" -C "${work_dir}/pacman.conf" -D "${install_dir}" -p "$(grep -h -v ^# ${script_path}/packages)" install
 }
 
 # Needed packages for x86_64 EFI boot
