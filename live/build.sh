@@ -6,7 +6,7 @@ iso_name=arch-m59
 iso_label="ARCH_m59_$(date +%Y%m)"
 iso_version=$(date +%Y.%m.%d)
 install_dir=arch
-work_dir=work
+work_dir=../tmp
 out_dir=../build
 gpg_key=
 
